@@ -1,5 +1,5 @@
-  SkyPizzaLab
--------------------------------
+PizzaLab
+--------
 Character Assembler for Blender
 This repository contains the Character Assembler addon for Blender 3.5.0 and later. The addon is designed to generate 3D characters based on fRiENDSiES NFTs, a collection of 10,000 unique tokens representing a wide variety of character traits. These traits, designed by FriendsWithYou, include custom heads, bodies, sprouts, tails, and other unique attributes. With this addon, users can create their unique 3D fRiENDSiES, bringing these digital companions to life in Blender​1​​2​.
 
