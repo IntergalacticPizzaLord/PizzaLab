@@ -73,6 +73,7 @@ class CharacterAssemblerPanel(bpy.types.Panel):
 
         #layout.operator(CharacterAssemblerOperator.bl_idname, text="Display Attributes")
         #layout.operator(CharacterBuilderOperator.bl_idname, text="Build Character")
+        layout.prop(props, "glb_folder")
         layout.operator(SaveCharacterGLBOperator.bl_idname, text="Save GLB")
         layout.operator(BatchCharacterImportOperator.bl_idname, text="Batch Import Characters")
 
@@ -87,6 +88,8 @@ class CharacterProperties(bpy.types.PropertyGroup):
     )
     attribute_keys: StringProperty(default="")
     batch_import_file: StringProperty(name="Batch Import File", subtype='FILE_PATH')
+    glb_folder: StringProperty(name="Export GLB Folder", subtype='DIR_PATH',)
+
 
 class ATTRIBUTE_UL_items(bpy.types.UIList):
     def draw_item(self, context, layout, data, item, icon, active_data, active_propname, index): 
@@ -290,7 +293,8 @@ def rig_character(token_number):
     bpy.ops.object.mode_set(mode='OBJECT')
 
 def export_character_glb(token_number):
-    glb_folder = "D:\PizzaLord Art\FWY\Garden fRiENDSiES\Test Load"  # Update this path to the folder where you want to save the .glb files
+    props = bpy.context.scene.character_props
+    glb_folder = props.glb_folder  # Update this path to the folder where you want to save the .glb files
     glb_file_name = f"Character_{token_number}.glb"
     glb_file_path = os.path.join(glb_folder, glb_file_name)
 
